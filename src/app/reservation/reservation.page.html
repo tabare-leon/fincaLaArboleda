@@ -1,6 +1,7 @@
 <ion-header >
   <ion-toolbar>
 
+    <!-- Boton de volver, start para que este al principio del header -->
     <ion-button slot="start" (click)="backToHome()">
 
       <ion-icon name="arrow-back"></ion-icon>
@@ -9,6 +10,7 @@
 
     <ion-title>Reservación</ion-title>
 
+    <!-- Boton de pqrs, end para que este al final del header -->
     <ion-button slot="end" (click)="goToPqrs()">
 
       <ion-icon  name="help-circle-outline"></ion-icon>
@@ -26,6 +28,7 @@
       <h1><strong>Hola, Alexandra</strong></h1>
       <p>La siguiente información esta relacionada con tu codigo de reserva <strong class="codigo">AAA-11</strong></p>
 
+      <!-- Card que contiene el nombre, fecha e imagen de la reserva -->
       <ion-card>
         
         <ion-card-header>
