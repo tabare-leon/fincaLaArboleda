@@ -9,11 +9,30 @@ ion-title{
 }
 ion-button{
     --background: #FF6000;
-    --background-activated: #d35100;
+    --background-activated: #ff9554;
     font-size: 20px;
 }
 .container{
     margin: 20px;
+
+    .codigo{
+        color: #303030;
+    }
+    img{
+        border-radius: 10px;
+    }
+    .h1-preguntas{
+        font-size: 20px;
+    }
+    p{
+        color: #777777;
+    }
+    .p-preguntas{
+        color: #FF6000;
+    }
+}
+ion-card{
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
 
