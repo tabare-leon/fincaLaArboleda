@@ -21,4 +21,8 @@ export class ReservationPage implements OnInit {
     this.router.navigate(['/pqrs'])
   }
 
+  callSupport(){
+    console.log('on tap callSupport');
+    
+  }
 }

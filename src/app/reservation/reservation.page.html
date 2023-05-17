@@ -1,50 +1,39 @@
-<ion-header >
+<ion-header>
   <ion-toolbar>
-
     <!-- Boton de volver, start para que este al principio del header -->
     <ion-button slot="start" (click)="backToHome()">
-
       <ion-icon name="arrow-back"></ion-icon>
-
     </ion-button>
 
     <ion-title>Reservación</ion-title>
 
     <!-- Boton de pqrs, end para que este al final del header -->
     <ion-button slot="end" (click)="goToPqrs()">
-
-      <ion-icon  name="help-circle-outline"></ion-icon>
-
+      <ion-icon name="help-circle-outline"></ion-icon>
     </ion-button>
-
   </ion-toolbar>
 </ion-header>
 
-
 <ion-content>
-
   <div class="container">
+    <h1><strong>Hola, Alexandra</strong></h1>
+    <p>
+      La siguiente información esta relacionada con tu codigo de reserva
+      <strong class="codigo">AAA-11</strong>
+    </p>
 
-      <h1><strong>Hola, Alexandra</strong></h1>
-      <p>La siguiente información esta relacionada con tu codigo de reserva <strong class="codigo">AAA-11</strong></p>
+    <!-- Card que contiene el nombre, fecha e imagen de la reserva -->
+    <app-card-reservation></app-card-reservation>
 
-      <!-- Card que contiene el nombre, fecha e imagen de la reserva -->
-      <ion-card>
-        
-        <ion-card-header>
+    <app-button
+      label="solicitar soporte"
+      fill="outline"
+      (onTap)="callSupport()"
+    ></app-button>
 
-          <ion-card-subtitle><ion-icon name="calendar-clear-outline"></ion-icon> 19 Jun 2022 - 24 jun 2022</ion-card-subtitle>
-          <ion-card-title>Picnic Familiar</ion-card-title>
+    <h1 class="h1-preguntas"><strong>Preguntas frecuentes</strong></h1>
+    <p>Dudas que pueden tener nuestros visitantes y que te van hacer util.</p>
 
-        </ion-card-header>
-        <img alt="" src="assets/img/img-cardd.webp" />
-        
-      </ion-card>
-
-      <h1 class="h1-preguntas"><strong>Preguntas frecuentes</strong></h1>
-      <p>Dudas que pueden tener nuestros visitantes y que te van hacer util.</p>
-
-      <p class="p-preguntas">- ¿Puedo cancelar mi reserva? </p>
+    <p class="p-preguntas">- ¿Puedo cancelar mi reserva?</p>
   </div>
-
 </ion-content>
