@@ -10,12 +10,6 @@
       placeholder="Código de reserva"
     ></ion-searchbar>
 
-    <!-- Boton redondeado mas icono de flecha -->
-
-    <app-button
-      label="Buscar reserva"
-      iconRight="arrow-forward-outline"
-      (onTap)="goToReservation()"
-    ></app-button>
+    <ion-button shape="round" (click)="goToReservation()">Buscar reserva</ion-button>
   </div>
 </ion-content>
