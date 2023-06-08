@@ -1,33 +1,40 @@
-ion-toolbar{
+ion-toolbar {
     --background: #ff6000;
     color: white;
 }
-ion-title{
-    font-size: 1.4rem; 
+
+ion-title {
+    font-size: 1.4rem;
     font-weight: normal;
     text-align: left;
 }
-ion-button{
+
+ion-button {
     --background: #FF6000;
     --background-activated: #ff9554;
     font-size: 20px;
     color: white;
+    --border-width: 0;
+    --border-radius: 0;
+    --box-shadow: none;
 }
-.container{
+
+.container {
     margin: 20px;
 
-    .codigo{
+    .codigo {
         color: #303030;
     }
-    .h1-preguntas{
+
+    .h1-preguntas {
         font-size: 20px;
     }
-    p{
+
+    p {
         color: #777777;
     }
-    .p-preguntas{
+
+    .p-preguntas {
         color: #FF6000;
     }
 }
-
-

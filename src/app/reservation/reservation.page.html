@@ -15,11 +15,11 @@
 </ion-header>
 
 <ion-content>
-  <div class="container">
-    <h1><strong>Hola, Alexandra</strong></h1>
+  <div class="container" *ngIf="booking">
+    <h1><strong>Hola, {{booking.name}}</strong></h1>
     <p>
       La siguiente información esta relacionada con tu codigo de reserva
-      <strong class="codigo">AAA-11</strong>
+      <strong class="codigo" >{{booking.booking_code}}</strong>
     </p>
 
     <!-- Card que contiene el nombre, fecha e imagen de la reserva -->

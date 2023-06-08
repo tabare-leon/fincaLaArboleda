@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { CabinsService } from '../services/cabins.service';
+import { Booking } from '../interface/ibooking';
+import { HomePage } from '../home/home.page';
 
 @Component({
   selector: 'app-reservation',
@@ -8,21 +11,36 @@ import { Router } from '@angular/router';
 })
 export class ReservationPage implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private service: CabinsService) { }
+
+  public booking!: Booking;
 
   ngOnInit() {
+    console.log("ngOnInit");
+    this.getBookingByCode()
   }
 
-  backToHome(){
+  backToHome() {
     this.router.navigate(['/home'])
   }
 
-  goToPqrs(){
+  goToPqrs() {
     this.router.navigate(['/pqrs'])
   }
 
-  callSupport(){
+  callSupport() {
     console.log('on tap callSupport');
-    
+  }
+
+  getBookingByCode() {
+    this.service.getBookingByCode("ABC123").subscribe({
+      next: (response) => {
+        console.log(response);
+        this.booking = response;
+      },
+      error: (err) => {
+        console.log(err);
+      }
+    });
   }
 }
