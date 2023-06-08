@@ -1,12 +1,11 @@
 <ion-card mode="ios">
   <ion-card-header>
     <ion-card-subtitle
-      ><ion-icon name="calendar-clear-outline"></ion-icon> 19 Jun 2022 - 24 jun
-      2022</ion-card-subtitle
+      ><ion-icon name="calendar-clear-outline"></ion-icon> {{ formattedInitialDate }} - {{ formattedFinalDate }} </ion-card-subtitle
     >
-    <ion-card-title>Picnic Familiar</ion-card-title>
+    <ion-card-title>{{booking.tittle}}</ion-card-title>
   </ion-card-header>
-  <img alt="" src="assets/img/img-cardd.webp" />
+  <img alt="" [src]="loadImg(booking.url)" />
   <app-rates [rating]="3" (onTapRate)="onTapRate($event)"></app-rates>
 </ion-card>
 

@@ -7,7 +7,7 @@ export interface Booking {
     phone_number: string;
     email: string;
     tittle: string;
-    initial_date: Date;
-    final_date: Date;
+    initial_date: string | null;
+    final_date: string | null;
     url: string;
 }

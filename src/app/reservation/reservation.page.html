@@ -19,17 +19,18 @@
     <h1><strong>Hola, {{booking.name}}</strong></h1>
     <p>
       La siguiente información esta relacionada con tu codigo de reserva
-      <strong class="codigo" >{{booking.booking_code}}</strong>
+      <strong class="codigo">{{booking.booking_code}}</strong>
     </p>
 
     <!-- Card que contiene el nombre, fecha e imagen de la reserva -->
-    <app-card-reservation></app-card-reservation>
+    <app-card-reservation
+      [booking]="booking" 
+      [formattedInitialDate]="formattedInitialDate"
+      [formattedFinalDate]="formattedFinalDate">
+    </app-card-reservation>
 
-    <app-button
-      label="solicitar soporte"
-      fill="outline"
-      (onTap)="callSupport()"
-    ></app-button>
+
+    <app-button label="solicitar soporte" fill="outline" (onTap)="callSupport()"></app-button>
 
     <h1 class="h1-preguntas"><strong>Preguntas frecuentes</strong></h1>
     <p>Dudas que pueden tener nuestros visitantes y que te van hacer util.</p>

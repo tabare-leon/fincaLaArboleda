@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CabinsService } from '../services/cabins.service';
 import { Booking } from '../interface/ibooking';
-import { HomePage } from '../home/home.page';
+import { NavParams } from '@ionic/angular';
+import { ActivatedRoute } from '@angular/router';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-reservation',
@@ -10,22 +12,34 @@ import { HomePage } from '../home/home.page';
   styleUrls: ['./reservation.page.scss'],
 })
 export class ReservationPage implements OnInit {
-
-  constructor(private router: Router, private service: CabinsService) { }
-
+  reservationCode: string;
   public booking!: Booking;
+  public formattedInitialDate!: string | null;
+  public formattedFinalDate!: string | null;
+
+  constructor(
+    private router: Router,
+    private service: CabinsService,
+    private navParams: NavParams,
+    private route: ActivatedRoute,
+    private datePipe: DatePipe
+  ) {
+    this.reservationCode = this.navParams.get('code');
+  }
 
   ngOnInit() {
-    console.log("ngOnInit");
-    this.getBookingByCode()
+    this.route.queryParams.subscribe((params) => {
+      this.reservationCode = params['code'];
+      this.getBookingByCode();
+    });
   }
 
   backToHome() {
-    this.router.navigate(['/home'])
+    this.router.navigate(['/home']);
   }
 
   goToPqrs() {
-    this.router.navigate(['/pqrs'])
+    this.router.navigate(['/pqrs']);
   }
 
   callSupport() {
@@ -33,14 +47,25 @@ export class ReservationPage implements OnInit {
   }
 
   getBookingByCode() {
-    this.service.getBookingByCode("ABC123").subscribe({
+    this.service.getBookingByCode(this.reservationCode).subscribe({
       next: (response) => {
         console.log(response);
         this.booking = response;
+
+        // Dar formato a las fechas
+        this.formattedInitialDate = this.datePipe.transform(
+          this.booking.initial_date,
+          'dd/MM/yyyy'
+        );
+        this.formattedFinalDate = this.datePipe.transform(
+          this.booking.final_date,
+          'dd/MM/yyyy'
+        );
       },
       error: (err) => {
         console.log(err);
-      }
+      },
     });
   }
 }
+

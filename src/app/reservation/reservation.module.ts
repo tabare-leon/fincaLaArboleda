@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
-import { IonicModule } from '@ionic/angular';
+import { IonicModule, NavParams } from '@ionic/angular';
 
 import { ReservationPageRoutingModule } from './reservation-routing.module';
 
@@ -11,6 +11,7 @@ import { SharedModule } from '../shared/shared.module';
 import { CoreModule } from '../shared/core.module';
 import { CabinsService } from '../services/cabins.service';
 import { HttpClientModule } from '@angular/common/http';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   imports: [
@@ -21,7 +22,9 @@ import { HttpClientModule } from '@angular/common/http';
   ],
   declarations: [ReservationPage],
   providers: [
-    CabinsService
+    CabinsService,
+    NavParams,
+    DatePipe,
   ]
 })
 export class ReservationPageModule {}

@@ -8,12 +8,20 @@ import { Router } from '@angular/router';
 })
 export class HomePage {
 
+  reservationCode: string = '';
+
   constructor(private router: Router) {}
 
-  goToReservation(){
-    this.router.navigate(['/reservation'])
-  }
+  // goToReservation(){
+  //   this.router.navigate(['/reservation'])
+  // }
 
+  navigateToReservation() {
+    this.router.navigate(['/reservation'], {
+      queryParams: { code: this.reservationCode }
+    });
+  }
+  
 }
   
   
