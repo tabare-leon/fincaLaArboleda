@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { CabinsService } from '../services/cabins.service';
-import { Booking } from '../interface/ibooking';
+import { CabinsService } from '../../services/cabins.service';
+import { Booking } from '../../interface/ibooking';
 import { NavParams } from '@ionic/angular';
 import { ActivatedRoute } from '@angular/router';
 import { DatePipe } from '@angular/common';

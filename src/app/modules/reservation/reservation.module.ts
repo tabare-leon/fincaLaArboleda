@@ -7,9 +7,9 @@ import { IonicModule, NavParams } from '@ionic/angular';
 import { ReservationPageRoutingModule } from './reservation-routing.module';
 
 import { ReservationPage } from './reservation.page';
-import { SharedModule } from '../shared/shared.module';
-import { CoreModule } from '../shared/core.module';
-import { CabinsService } from '../services/cabins.service';
+import { SharedModule } from '../../shared/shared.module';
+import { CoreModule } from '../../shared/core.module';
+import { CabinsService } from '../../services/cabins.service';
 import { HttpClientModule } from '@angular/common/http';
 import { DatePipe } from '@angular/common';
 
