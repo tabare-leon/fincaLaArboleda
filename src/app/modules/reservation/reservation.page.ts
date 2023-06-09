@@ -14,8 +14,9 @@ import { DatePipe } from '@angular/common';
 export class ReservationPage implements OnInit {
   reservationCode: string;
   public booking!: Booking;
-  public formattedInitialDate!: string | null;
-  public formattedFinalDate!: string | null;
+  public formattedInitialDate!: string;
+  public formattedFinalDate!: string;
+  isOpenModalPqrs = false;
 
   constructor(
     private router: Router,
@@ -38,12 +39,14 @@ export class ReservationPage implements OnInit {
     this.router.navigate(['/home']);
   }
 
-  goToPqrs() {
-    this.router.navigate(['/pqrs']);
+  goToPqrs(){
+    console.log('on tap callSupport');
+    this.isOpenModalPqrs = true;
   }
 
-  callSupport() {
+  callSupport(){
     console.log('on tap callSupport');
+    this.isOpenModalPqrs = true;
   }
 
   getBookingByCode() {
@@ -56,14 +59,15 @@ export class ReservationPage implements OnInit {
         this.formattedInitialDate = this.datePipe.transform(
           this.booking.initial_date,
           'dd/MM/yyyy'
-        );
+        )!;
         this.formattedFinalDate = this.datePipe.transform(
           this.booking.final_date,
           'dd/MM/yyyy'
-        );
+        )!;
       },
       error: (err) => {
         console.log(err);
+        this.router.navigate(['/home']);
       },
     });
   }

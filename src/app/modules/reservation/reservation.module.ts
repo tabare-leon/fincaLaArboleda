@@ -1,30 +1,25 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { DatePipe } from '@angular/common';
 
-import { IonicModule, NavParams } from '@ionic/angular';
+import { NavParams } from '@ionic/angular';
 
 import { ReservationPageRoutingModule } from './reservation-routing.module';
 
 import { ReservationPage } from './reservation.page';
 import { SharedModule } from '../../shared/shared.module';
 import { CoreModule } from '../../shared/core.module';
-import { CabinsService } from '../../services/cabins.service';
 import { HttpClientModule } from '@angular/common/http';
-import { DatePipe } from '@angular/common';
+import { CabinsService } from 'src/app/services/cabins.service';
+import { UploadFileService } from 'src/app/services/upload-file.service';
 
 @NgModule({
   imports: [
     ReservationPageRoutingModule,
+    HttpClientModule,
     CoreModule,
     SharedModule,
-    HttpClientModule
   ],
   declarations: [ReservationPage],
-  providers: [
-    CabinsService,
-    NavParams,
-    DatePipe,
-  ]
+  providers: [CabinsService, UploadFileService, NavParams, DatePipe],
 })
 export class ReservationPageModule {}
